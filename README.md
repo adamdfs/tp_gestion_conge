@@ -55,7 +55,7 @@ php bin/console doctrine:migrations:generate
 php bin/console doctrine:migrations:migrate
 
 # Valider le schéma de la base de données
-php bin/console doctrine:schema:validate
+
 
 # Si vous voulez repartir sur une base propre, supprimez-la et recréez-la
 
