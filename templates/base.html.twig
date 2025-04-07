@@ -852,7 +852,7 @@
             }
         </style>
         
-        {% block stylesheets %}{% endblock %}
+         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         <div class="loader" id="page-loader"></div>
@@ -872,6 +872,7 @@
                                 <i class="fas fa-home mr-1"></i> Accueil
                             </a>
                         </li>
+                        
                         <li class="nav-item {% if app.request.get('_route') == 'app_stats' %}active{% endif %}">
                             <a class="nav-link" href="{{ path('app_stats') }}">
                                 <i class="fas fa-chart-line mr-1"></i> Statistiques
@@ -880,6 +881,18 @@
                         <li class="nav-item {% if app.request.get('_route') == 'app_stats_user' %}active{% endif %}">
                             <a class="nav-link" href="{{ path('app_stats_user') }}">
                                 <i class="fas fa-user-chart mr-1"></i> Stats par utilisateur
+                            </a>
+                        </li>
+                        {# Lien vers Alertes #}
+                        <li class="nav-item {% if app.request.get('_route') == 'app_stats_alerts' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('app_stats_alerts') }}">
+                                <i class="fas fa-bell mr-1"></i> Alertes
+                            </a>
+                        </li>
+                        {# Nouveau lien pour le Dashboard RH #}
+                        <li class="nav-item {% if app.request.get('_route') == 'app_stats_rh_dashboard' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('app_stats_rh_dashboard') }}">
+                                <i class="fas fa-tachometer-alt mr-1"></i> Dashboard RH
                             </a>
                         </li>
                         <li class="nav-item {% if app.request.get('_route') == 'user' %}active{% endif %}">

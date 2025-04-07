@@ -1,0 +1,34 @@
+{# templates/stats/rh_dashboard.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard RH{% endblock %}
+
+{% block body %}
+    <h1>Dashboard RH - Soldes de congés reportés</h1>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Département</th>
+                <th>Type de congé</th>
+                <th>Total reporté</th>
+                <th>Ajustement</th>
+                <th>Total final</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in dashboardData %}
+                <tr>
+                    <td>{{ row.departement }}</td>
+                    <td>{{ row.typeConge }}</td>
+                    <td>{{ row.totalCarryOver }}</td>
+                    <td>{{ row.ajustement }}</td>
+                    <td>{{ row.totalFinal }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">Aucune donnée disponible.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

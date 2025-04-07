@@ -1,0 +1,34 @@
+{# templates/stats/alerts.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Alertes de Congés{% endblock %}
+
+{% block body %}
+    <h1>Alertes : Dates limites de congés</h1>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>Employé</th>
+                <th>Date limite</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Seuil pour l'alerte : aujourd'hui + 30 jours #}
+            {% set threshold = date('+30 days') %}
+            {% for item in alerts %}
+                <tr>
+                    <td>{{ item.employee.nom ~ ' ' ~ item.employee.prenom }}</td>
+                    <td>{{ item.expiration|date('d/m/Y') }}</td>
+                    <td>
+                        {% if item.expiration <= threshold %}
+                            <span style="color: red;">Expiration proche !</span>
+                        {% else %}
+                            OK
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
